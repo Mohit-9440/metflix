@@ -16,7 +16,10 @@
     "web-vitals": "^2.1.2"
   },
   "devDependencies": {
-    "@testing-library/react": "^12.1.2"
+    "@testing-library/react": "^12.1.2",
+    "eslint": "^8.5.0",
+    "eslint-plugin-react": "^7.27.1",
+    "prettier": "2.5.1"
   },
   "scripts": {
     "start": "react-scripts start",
