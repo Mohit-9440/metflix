@@ -1,5 +1,4 @@
 import React from 'react';
-// import { OptForm } from '../components'
 import { JumbotronContainer } from '../containers/jumbotron';
 import { FaqsContainer } from '../containers/faqs';
 import { FooterContainer } from '../containers/footer';
