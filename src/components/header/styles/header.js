@@ -3,11 +3,15 @@ import { Link as ReactRouterLink } from 'react-router-dom';
 
 export const Background = styled.div``;
 
-export const Frame = styled.div``;
+export const Frame = styled.div`
+  
+`;
 
 export const Container = styled.div``;
 
-export const Logo = styled.img``;
+export const Logo = styled.img`
+max-width: 100px;
+`;
 
 export const ButtonLink = styled(ReactRouterLink)`
     display: block;

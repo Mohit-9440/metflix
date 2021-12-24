@@ -1,5 +1,5 @@
 import React from 'react';
 
-export default function Signin() {
+export default function SignIn() {
     return <p>Hello from the sign in!</p>;
 }

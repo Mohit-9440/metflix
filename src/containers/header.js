@@ -2,15 +2,17 @@
 /* eslint-disable react/prop-types */
 import React from "react";
 import { Header } from "../components";
-import ROUTES from '../constants/routes'
+import * as ROUTES from '../constants/routes';
+import logo from '../logo.svg';
 
-export function HeaderContainer( {children} ) {
+export function HeaderContainer({children}) {
     return (
         <Header>
             <Header.Frame>
-                <Header.Logo to={ROUTES.HOME} alt="Metflix"/>
-                <Header.Button to={ROUTES.SIGN_IN}>Sign In</Header.Button>
+                <Header.Logo to={ROUTES.HOME} src={logo}  alt="Metflix"/>
+                <Header.ButtonLink to={ROUTES.SIGN_IN}>Sign In</Header.ButtonLink>
             </Header.Frame>
+            {children}
         </Header>
     );
 }
