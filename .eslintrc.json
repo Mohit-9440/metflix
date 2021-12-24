@@ -12,11 +12,13 @@
             "jsx": true
         },
         "ecmaVersion":8,
-        "sourceType": "module"
+        "sourceType": "module",
+        "parser": "@babel/eslint-parser"
     },
     "plugins": [
         "react"
     ],
     "rules": {
     }
+    
 }
