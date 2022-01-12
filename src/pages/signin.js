@@ -1,9 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FirebaseContext } from '../context/firebase';
 import { HeaderContainer } from '../containers/header';
 import { FooterContainer } from '../containers/footer';
 import { Form } from '../components';
+import * as ROUTES from '../constants/routes';
 
 export default function SignIn() {
+    const navigate = useNavigate();
+    const { firebase } = useContext(FirebaseContext);
     const [emailAddress, setEmailAddress] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -13,7 +18,18 @@ export default function SignIn() {
         event.preventDefault();
 
         // firebase work here!
-    };
+        firebase
+            .auth()
+            .signInWithEmailAndPassword(emailAddress, password)
+            .then(() => {
+                navigate.push(ROUTES.BROWSE);
+            })
+            .catch((error) => {
+                setEmailAddress('');
+                setPassword('');
+                setError(error.message);
+            });
+    }
 
     //check form input elements are valid
     // email & password
@@ -23,14 +39,14 @@ export default function SignIn() {
         <HeaderContainer>
             <Form>
                 <Form.Title>Sign In</Form.Title>
-                {!error && <Form.Error>I am error!{error}</Form.Error>}
+                {error && <Form.Error>{error}</Form.Error>}
 
-                <Form.Base onSubmit={handleSignIn} method="Post">
+                <Form.Base onSubmit={handleSignIn} method="POST">
                     <Form.Input
                         placeholder="Email address"
                         value={emailAddress}
                         onChange={({ target }) => setEmailAddress(target.value)}
-                        />
+                    />
                     <Form.Input
                         type="password"
                         placeholder="Password"
